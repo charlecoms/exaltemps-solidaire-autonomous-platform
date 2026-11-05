@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exaltemps Solidaire – Champions playbook</title>
+<style>
+:root{--brand:#5853FF;--deep:#2F2F9B;--white:#FFFFFF;--ink:#14143f;--ink2:#1b1b5c;--soft:rgba(255,255,255,.72);--line:rgba(255,255,255,.16);--glass:rgba(255,255,255,.06)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"Century Gothic","CenturyGothic","Apple Gothic","URW Gothic","Questrial","Avant Garde",sans-serif;color:var(--white);background:radial-gradient(1200px 700px at 85% -10%,rgba(88,83,255,.55),transparent 60%),radial-gradient(900px 600px at -10% 40%,rgba(47,47,155,.9),transparent 60%),var(--ink);line-height:1.65;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.13;pointer-events:none;mask-image:radial-gradient(ellipse at 50% 20%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000,transparent 75%)}
+main{position:relative;max-width:1060px;margin:0 auto;padding:0 24px 80px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:72px 0 48px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.04;letter-spacing:-.02em;font-weight:700}
+.hero p{margin-top:20px;color:var(--soft);font-size:1.1rem;max-width:46ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(8px);padding:8px 16px;border-radius:999px;font-size:.9rem}
+.chip b{color:var(--white)}
+.net{width:100%;height:auto}
+.net .pulse{animation:pulse 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.net .p2{animation-delay:.8s}.net .p3{animation-delay:1.6s}.net .p4{animation-delay:2.4s}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.35)}}
+
+/* sections */
+section{margin-top:56px}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin-bottom:8px}
+.lead{color:var(--soft);max-width:62ch;margin-bottom:28px}
+.panel{border:1px solid var(--line);background:linear-gradient(160deg,rgba(88,83,255,.22),rgba(47,47,155,.12));border-radius:22px;padding:28px 30px}
+.panel p+p{margin-top:12px}
+.panel p{color:var(--soft)}
+.panel strong{color:var(--white)}
+
+/* deliverables */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.del{position:relative;border:1px solid var(--line);background:var(--glass);border-radius:16px;padding:20px 18px;cursor:pointer;transition:border-color .2s,background .2s;display:block}
+.del input{position:absolute;opacity:0}
+.del svg{width:34px;height:34px;stroke:var(--white);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.del h3{font-size:1rem;margin:12px 0 4px}
+.del span{font-size:.88rem;color:var(--soft);display:block}
+.del .tick{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.8rem;color:transparent}
+.del:has(input:checked){border-color:var(--brand);background:rgba(88,83,255,.28)}
+.del:has(input:checked) .tick{background:var(--brand);border-color:var(--brand);color:var(--white)}
+.del:has(input:focus-visible){outline:3px solid var(--white);outline-offset:3px}
+
+/* rules timeline */
+.rules{position:relative;display:grid;gap:18px;padding-left:34px}
+.rules::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--brand),var(--deep))}
+.rule{position:relative;border:1px solid var(--line);background:var(--glass);border-radius:18px;padding:22px 26px}
+.rule::before{content:"";position:absolute;left:-30px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid var(--brand);box-shadow:0 0 14px var(--brand)}
+.rule h3{font-size:1.15rem;margin-bottom:6px}
+.rule p{color:var(--soft)}
+.rule ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.rule li{color:var(--soft)}
+.rule li strong{color:var(--white)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.track{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(20,20,63,.55)}
+.track h4{font-size:1rem;margin-bottom:8px}
+.track ul{margin-top:6px}
+.track.a{border-top:3px solid var(--brand)}
+.track.b{border-top:3px solid var(--white)}
+.human{margin-top:16px;border:1px dashed var(--brand);border-radius:14px;padding:14px 18px;background:rgba(88,83,255,.14);color:var(--white)!important}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pills span{background:var(--brand);padding:4px 14px;border-radius:999px;font-size:.85rem}
+.pills span.o{background:transparent;border:1px solid var(--brand)}
+
+/* progress */
+.bar{position:sticky;top:0;z-index:5;margin:0 -24px;padding:12px 24px;background:rgba(20,20,63,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;font-size:.9rem}
+.bar .brand{font-weight:700}
+.meter{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--white));transition:width .4s}
+footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:40px}.split{grid-template-columns:1fr}.rules{padding-left:28px}}
+@media(prefers-reduced-motion:reduce){.net .pulse{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+<div class="bar" role="status"><span class="brand">Exaltemps Solidaire</span><div class="meter" aria-hidden="true"><i id="fill"></i></div><span id="count">0 / 5 deliverables</span></div>
+
+<header class="hero">
+  <div>
+    <h1>Build a platform that looks after itself.</h1>
+    <p>Welcome, champion. You and your teammates will deliver a fully working, AI-run AWS platform to an association that has no IT team of its own.</p>
+    <div class="chips"><span class="chip"><b>10–15</b> champions</span><span class="chip"><b>5</b> deliverables</span><span class="chip"><b>2</b> tracks</span></div>
+  </div>
+  <svg class="net" viewBox="0 0 400 340" role="img" aria-label="Network of AI agents connected around a cloud platform">
+    <defs><radialGradient id="g" cx="50%" cy="50%"><stop offset="0" stop-color="#5853FF" stop-opacity=".9"/><stop offset="1" stop-color="#2F2F9B" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="200" cy="170" r="150" fill="url(#g)"/>
+    <g stroke="#FFFFFF" stroke-opacity=".45" stroke-width="1.2" fill="none">
+      <path d="M200 170 L80 70M200 170 L330 80M200 170 L70 250M200 170 L340 260M200 170 L200 40M200 170 L200 305M80 70 L200 40 L330 80M70 250 L200 305 L340 260"/>
+    </g>
+    <g fill="#FFFFFF"><circle class="pulse" cx="80" cy="70" r="9"/><circle class="pulse p2" cx="330" cy="80" r="9"/><circle class="pulse p3" cx="70" cy="250" r="9"/><circle class="pulse p4" cx="340" cy="260" r="9"/><circle class="pulse p2" cx="200" cy="40" r="7"/><circle class="pulse p3" cx="200" cy="305" r="7"/></g>
+    <circle cx="200" cy="170" r="46" fill="#2F2F9B" stroke="#5853FF" stroke-width="3"/>
+    <path d="M178 182h42a14 14 0 0 0 2-28 20 20 0 0 0-38-4 16 16 0 0 0-6 32z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  </svg>
+</header>
+
+<section>
+  <h2>The mission</h2>
+  <p class="lead">Here’s the big picture before you dive into the rules.</p>
+  <div class="panel">
+    <p><strong>Exaltemps Solidaire</strong> is a hackathon with a purpose. Our goal is to deliver real IT work to associations that don’t have any IT expertise.</p>
+    <p>We’ve picked <strong>10 to 15 champions</strong> from our company, and that’s you. Each association needs a <strong>fully working AWS platform</strong> to host its application.</p>
+    <p>Your job is to build an <strong>autonomous platform powered by AI</strong>, one that needs as little human intervention as possible to keep running.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What you need to deliver</h2>
+  <p class="lead">Five deliverables are expected. Tap each one to tick it off as you go.</p>
+  <div class="grid">
+    <label class="del"><input type="checkbox"><span class="tick">✓</span>
+      <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 10l-2 2 2 2M16 10l2 2-2 2M13 9l-2 6"/></svg>
+      <h3>A Terraform repository</h3><span>The infrastructure code, ready to reuse.</span></label>
+    <label class="del"><input type="checkbox"><span class="tick">✓</span>
+      <svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 21h6"/></svg>
+      <h3>One or more AI agents</h3><span>They build the AWS platform from the app’s Git repo, then maintain it. You also build their harness.</span></label>
+    <label class="del"><input type="checkbox"><span class="tick">✓</span>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+      <h3>An application URL</h3><span>The live app, reachable by everyone.</span></label>
+    <label class="del"><input type="checkbox"><span class="tick">✓</span>
+      <svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+      <h3>A live monitoring URL</h3><span>A page showing the platform’s health in real time.</span></label>
+    <label class="del"><input type="checkbox"><span class="tick">✓</span>
+      <svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 11h8M8 15h8"/></svg>
+      <h3>A quickstart guide</h3><span>So the association can deploy it on its own.</span></label>
+  </div>
+</section>
+
+<section>
+  <h2>The rules of the game</h2>
+  <p class="lead">Follow these in order. They’re short, and they’ll save you hours.</p>
+  <div class="rules">
+
+    <article class="rule"><h3>Get your tools ready</h3>
+      <p>Make sure you have <strong>Claude Code</strong> installed, plus <strong>VS Code</strong> or <strong>IntelliJ</strong>, whichever you prefer.</p></article>
+
+    <article class="rule"><h3>Clone the application code</h3>
+      <p>Everyone on the team should have the application’s Git repository on their own machine. We’ll share the link with you later.</p></article>
+
+    <article class="rule"><h3>Start from the Terraform example</h3>
+      <p>You can also clone our example Terraform repository. It already bootstraps the project, so you don’t need to lose time configuring Terraform and AWS from scratch. Skip the setup and spend your energy on the agents.</p></article>
+
+    <article class="rule"><h3>Split the work into two distinct tracks</h3>
+      <p>Divide and conquer, or work on both together. Just make sure the two parts stay clearly separate.</p>
+      <div class="split">
+        <div class="track a"><h4>Track one: the builder agent</h4>
+          <p>Your agent calculates and builds the Terraform modules, then provisions the right AWS components for the application’s needs. You also build the harness around it.</p>
+          <div class="pills"><span>Security</span><span>FinOps</span><span>High availability</span></div></div>
+        <div class="track b"><h4>Track two: the self-maintaining agent</h4>
+          <p>Your agent watches the platform’s health, reacts to outages, and sends notifications when needed.</p>
+          <p class="human"><strong>Can’t fix it automatically?</strong> Then tell us clearly that a human needs to step in. Keep a human in the loop.</p></div>
+      </div>
+    </article>
+
+    <article class="rule"><h3>Don’t forget the tests</h3>
+      <p>Test your Terraform, your agents and your harness. A platform that runs itself has to be one you can trust.</p></article>
+
+    <article class="rule"><h3>Ship every deliverable</h3>
+      <p>Before you call it done, check that all five deliverables are ready: the Terraform repo, the AI agents, the app URL, the monitoring URL and the quickstart guide. Use the checklist above.</p></article>
+  </div>
+</section>
+
+<footer>Build something autonomous. Build it for someone who needs it. Good luck, champions.</footer>
+</main>
+<script>
+(function(){
+  var boxes=document.querySelectorAll('.del input'),fill=document.getElementById('fill'),count=document.getElementById('count');
+  function update(){var n=0;boxes.forEach(function(b){if(b.checked)n++});fill.style.width=(n/boxes.length*100)+'%';count.textContent=n+' / '+boxes.length+' deliverables'}
+  boxes.forEach(function(b){b.addEventListener('change',update)});
+})();
+</script>
+</body>
+</html>
