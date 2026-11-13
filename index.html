@@ -313,10 +313,12 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
           <div class="en"><p>Your agent adapts the default Terraform base to PM Lab: it builds the Terraform modules and provisions the right AWS components for the application’s needs. You also enrich the shared harness for it.</p>
             <ul><li><strong>Don’t waste time fetching the Git projects with the agent.</strong></li><li>Launch the agent directly on the two repositories already cloned on your VM, on the builder branch.</li></ul>
             <p class="tip">Save your time for the architecture and the harness, not for plumbing.</p>
+            <p class="tip warn"><strong>Watch out:</strong> take into account building and publishing any Docker images the application needs (for example to Amazon ECR), not just the infrastructure.</p>
             <p class="squad"><strong>A dedicated security squad</strong>You’ll surely need a squad working on skills that ensure security in the global harness, common to the builder agent and the ops agent. Don’t hesitate to create skills for that.</p></div>
           <div class="fr"><p>Ton agent adapte la base Terraform par défaut à PM Lab : il construit les modules Terraform et provisionne les bons composants AWS selon les besoins de l’application. Tu enrichis aussi le harnais commun pour lui.</p>
             <ul><li><strong>Ne perds pas de temps à faire récupérer les projets Git par l’agent.</strong></li><li>Lance l’agent directement sur les deux dépôts déjà clonés sur ta VM, sur la branche builder.</li></ul>
             <p class="tip">Garde ton temps pour l’architecture et le harnais, pas pour la tuyauterie.</p>
+            <p class="tip warn"><strong>Point d’attention :</strong> pense à prendre en compte le build et la publication des éventuelles images Docker de l’application (par exemple vers Amazon ECR), pas seulement l’infrastructure.</p>
             <p class="squad"><strong>Une squad sécurité dédiée</strong>Tu auras sûrement besoin d’une squad qui travaille sur des skills garantissant la sécurité dans le harnais global, commun à l’agent builder et à l’agent ops. N’hésite pas à créer des skills pour ça.</p></div>
           <div class="pills"><span>Security</span><span class="en">High availability</span><span class="fr">Haute disponibilité</span></div></div>
         <div class="track b">
