@@ -321,16 +321,16 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
           <div class="pills"><span>Security</span><span class="en">High availability</span><span class="fr">Haute disponibilité</span></div></div>
         <div class="track b">
           <h4 class="en">Track two: the ops agents</h4><h4 class="fr">Piste 2 : les agents ops</h4>
-          <div class="en"><p>This track has <strong>two separate agents</strong>, each with its own harness. The second one is provided by the first.</p>
+          <div class="en"><p>This track has <strong>two separate agents</strong> that share the same harness. The second one is provided by the first.</p>
             <div class="sub"><h5>The ops builder agent</h5>
               <ul><li>It creates the monitoring and notification Terraform resources with the harness, based on what the builder agent deploys.</li><li>Start from the existing Terraform codebase on the ops branch, and re-sync each time a new builder version lands on <code>master</code>.</li></ul>
               <div class="nest"><h5>The operating agent</h5><span class="via">Provided by the ops builder agent as a Terraform resource</span>
-                <ul><li>It runs in your AWS account. Have a close look at <strong>Amazon Bedrock</strong>.</li><li>It operates 24/7 and reacts to AWS platform events, also within a harness, and only steps in when an event isn’t handled by a managed service.</li></ul></div></div></div>
-          <div class="fr"><p>Cette piste compte <strong>deux agents distincts</strong>, chacun avec son propre harnais. Le second est fourni par le premier.</p>
+                <ul><li>It runs in your AWS account. Have a close look at <strong>Amazon Bedrock</strong>.</li><li>It operates 24/7 and reacts to AWS platform events, within that same harness, and only steps in when an event isn’t handled by a managed service.</li></ul></div></div></div>
+          <div class="fr"><p>Cette piste compte <strong>deux agents distincts</strong> qui partagent le même harnais. Le second est fourni par le premier.</p>
             <div class="sub"><h5>L’agent ops builder</h5>
               <ul><li>Il crée les ressources Terraform de monitoring et de notification avec le harnais, en fonction de ce que déploie l’agent builder.</li><li>Pars du code Terraform existant sur la branche ops, et resynchronise-toi chaque fois qu’une nouvelle version du builder arrive sur <code>master</code>.</li></ul>
               <div class="nest"><h5>L’agent d’exploitation</h5><span class="via">Fourni par l’agent ops builder sous forme de ressource Terraform</span>
-                <ul><li>Il tourne dans ton compte AWS. Regarde de près <strong>Amazon Bedrock</strong>.</li><li>Il opère 24 h/24 et réagit aux événements de la plateforme AWS, lui aussi dans un harnais, et n’intervient que si un événement n’est pas géré par un service managé.</li></ul></div></div></div>
+                <ul><li>Il tourne dans ton compte AWS. Regarde de près <strong>Amazon Bedrock</strong>.</li><li>Il opère 24 h/24 et réagit aux événements de la plateforme AWS, dans ce même harnais, et n’intervient que si un événement n’est pas géré par un service managé.</li></ul></div></div></div>
           <p class="tip en">If the operating agent can’t handle a case or fails, a human steps in with a notification.</p>
           <p class="tip fr">Si l’agent d’exploitation ne peut traiter un cas ou échoue, on passe à l’humain dans la boucle avec une notification.</p>
           <div class="pills"><span>FinOps</span><span>Monitoring</span><span>Security</span></div></div>
