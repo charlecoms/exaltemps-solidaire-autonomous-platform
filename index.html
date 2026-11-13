@@ -41,15 +41,10 @@ h2{font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin-bottom:8px}
 .arch img{width:100%;height:auto;display:block;border-radius:12px}
 .cap{color:var(--soft);font-size:.88rem;margin-top:8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.del{position:relative;border:1px solid var(--line);background:var(--glass);border-radius:16px;padding:20px 18px;cursor:pointer;transition:border-color .2s,background .2s;display:block}
-.del input{position:absolute;opacity:0}
+.del{position:relative;border:1px solid var(--line);background:var(--glass);border-radius:16px;padding:20px 18px;display:block}
 .del svg{width:34px;height:34px;stroke:var(--white);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .del h3{font-size:1rem;margin:12px 0 4px}
 .del span.d{font-size:.88rem;color:var(--soft);display:block}
-.del .tick{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.8rem;color:transparent}
-.del:has(input:checked){border-color:var(--brand);background:rgba(88,83,255,.28)}
-.del:has(input:checked) .tick{background:var(--brand);border-color:var(--brand);color:var(--white)}
-.del:has(input:focus-visible){outline:3px solid var(--white);outline-offset:3px}
 .build{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px;list-style:none;padding:0}
 .build li ul{margin:8px 0 0;padding-left:18px;display:grid;gap:6px}.build li:first-child{grid-column:1/-1}.build li{border:1px solid var(--line);background:rgba(20,20,63,.55);border-radius:14px;padding:14px 16px;font-size:.93rem}
 .rules{position:relative;display:grid;gap:18px;padding-left:34px}
@@ -77,27 +72,85 @@ h2{font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin-bottom:8px}
 .pr p{font-size:.9rem}
 .bar{position:sticky;top:0;z-index:5;margin:0 -24px;padding:12px 24px;background:rgba(20,20,63,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;font-size:.9rem}
 .bar .brand{font-weight:700;white-space:nowrap}
-.meter{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
-.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--white));transition:width .4s}
+.menu{flex:1;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.menu::-webkit-scrollbar{display:none}
+.menu a{color:var(--soft);text-decoration:none;white-space:nowrap;padding:5px 12px;border-radius:999px;border:1px solid transparent;transition:color .2s,background .2s,border-color .2s}
+.menu a:hover{color:var(--white);background:var(--glass)}
+.menu a.on{color:var(--white);border-color:var(--brand);background:rgba(88,83,255,.22)}
+section{scroll-margin-top:72px}
+.build-tip{margin-top:16px}
+.nest{margin-top:14px;border:1px dashed rgba(255,255,255,.35);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.05)}
+.nest h5,.nest b{display:block;font-size:.95rem;color:var(--white);margin-bottom:2px}
+.nest .via{display:block;font-size:.8rem;color:#b9b7ff;margin-bottom:6px}
+.nest ul{margin-top:6px}
+.squad{margin-top:12px;border:1px solid var(--brand);border-radius:12px;padding:12px 14px;background:rgba(88,83,255,.18);font-size:.93rem;color:var(--white)!important}
+.squad strong{display:block;margin-bottom:2px}
+.bgrid.duo{grid-template-columns:repeat(2,1fr)}
+@media(max-width:780px){.bgrid.duo{grid-template-columns:1fr}}
+.bgrid{display:grid;gap:14px}
+.bgrid.three{grid-template-columns:repeat(3,1fr)}
+.bgrid.two{grid-template-columns:repeat(2,1fr);margin-top:14px}
+.bcard .bt{position:absolute;top:18px;right:18px}
+.bcard .bt .tag{margin:0}
+.bcard h3{margin-top:14px}
+@media(max-width:780px){.bgrid.three,.bgrid.two{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--brand);color:var(--white);margin-right:8px;vertical-align:2px}
+.tag.ops{background:var(--white);color:var(--deep)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:rgba(20,20,63,.75);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--white);white-space:nowrap}
+.repo b span{color:inherit;font-size:inherit;word-break:normal}
+.pre summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.pre summary::-webkit-details-marker{display:none}
+.pre summary h3{margin:0}
+.pre summary .hint{color:var(--soft);font-size:.88rem;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.pre summary .chev{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s,background .25s}
+.pre summary .chev svg{width:14px;height:14px;stroke:var(--white);fill:none;stroke-width:2}
+.pre[open] summary .chev{transform:rotate(180deg);background:var(--brand);border-color:var(--brand)}
+.checks{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px;counter-reset:c}
+.checks li{counter-increment:c;display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(20,20,63,.55)}
+.checks li::before{content:counter(c);width:26px;height:26px;border-radius:50%;border:1.5px solid var(--brand);display:grid;place-items:center;font-size:.8rem;font-weight:700;color:var(--white)}
+.checks li span{color:var(--soft)}
+.checks li span strong{color:var(--white)}
+.repos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.repo{display:block;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:rgba(20,20,63,.6);color:var(--white);text-decoration:none;transition:border-color .2s}
+.repo:hover{border-color:var(--brand)}
+.repo b{display:block;margin-bottom:2px}
+.repo span{color:var(--soft);font-size:.85rem;word-break:break-all}
+.branches{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.branches li{border-left:3px solid var(--brand);padding:2px 0 2px 16px}
+.branches li.ops-l{border-left-color:var(--white)}
+.sub{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.sub:first-of-type{margin-top:10px;padding-top:0;border-top:0}
+.sub h5{font-size:.95rem;margin-bottom:4px;color:var(--white)}
+.warn{border-color:var(--white);background:rgba(255,255,255,.08)}
+.dod{margin-top:16px;border:1px solid var(--brand);border-radius:16px;padding:20px;background:rgba(88,83,255,.12)}
+.dod>h4{font-size:1.05rem;margin-bottom:4px}
 .lang{position:relative;display:flex;border:1px solid var(--line);border-radius:999px;background:var(--glass);padding:3px;cursor:pointer;color:var(--white);font:inherit;font-size:.8rem;font-weight:700}
 .lang span{position:relative;z-index:1;padding:4px 12px;transition:color .25s}
 .lang::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--brand);transition:transform .3s}
 html[lang=fr] .lang::before{transform:translateX(100%)}
 footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
-@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:40px}.split,.times{grid-template-columns:1fr}.rules{padding-left:28px}#count{display:none}}
-@media(prefers-reduced-motion:reduce){.net .pulse{animation:none}html{scroll-behavior:auto}.lang::before{transition:none}}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:40px}.split,.times{grid-template-columns:1fr}.rules{padding-left:28px}.bar .brand{display:none}.pre summary .hint .t{display:none}}
+@media(prefers-reduced-motion:reduce){.net .pulse{animation:none}html{scroll-behavior:auto}.lang::before,.pre summary .chev{transition:none}}
 </style>
 </head>
 <body>
 <main>
-<div class="bar" role="status"><span class="brand">Exaltemps Solidaire</span><div class="meter" aria-hidden="true"><i id="fill"></i></div><span id="count"></span>
+<div class="bar"><span class="brand">Exaltemps Solidaire</span>
+<nav class="menu" aria-label="Sections">
+  <a href="#day"><span class="en">The day</span><span class="fr">Le programme</span></a>
+  <a href="#mission"><span class="en">The mission</span><span class="fr">La mission</span></a>
+  <a href="#app"><span class="en">The application</span><span class="fr">L’application</span></a>
+  <a href="#build"><span class="en">What you build</span><span class="fr">Ce que tu construis</span></a>
+  <a href="#deliver"><span class="en">What you deliver</span><span class="fr">Ce que tu livres</span></a>
+  <a href="#rules"><span class="en">Guidelines</span><span class="fr">Les guidelines</span></a>
+</nav>
 <button class="lang" id="lang" type="button" aria-label="Switch language / Changer de langue"><span>EN</span><span>FR</span></button></div>
 
 <header class="hero">
   <div>
     <h1><span class="en">Build a platform that looks after itself.</span><span class="fr">Construisez une plateforme qui s’occupe d’elle-même.</span></h1>
-    <p class="en">Welcome, champion. You and your teammates will deliver a fully working, AI-run AWS platform to an association that has no IT team of its own.</p>
-    <p class="fr">Bienvenue, champion. Avec ton équipe, tu vas livrer à une association sans équipe IT une plateforme AWS pleinement fonctionnelle, pilotée par l’IA.</p>
+    <p class="en">Welcome, champion. You and your teammates will deliver a fully working, AI-run AWS platform to an association with limited IT resources.</p>
+    <p class="fr">Bienvenue, champion. Avec ton équipe, tu vas livrer à une association aux ressources IT limitées une plateforme AWS pleinement fonctionnelle, pilotée par l’IA.</p>
     <div class="chips"><span class="chip en"><b>10–15</b> champions</span><span class="chip en"><b>5</b> deliverables</span><span class="chip en"><b>2</b> tracks</span>
     <span class="chip fr"><b>10–15</b> champions</span><span class="chip fr"><b>5</b> livrables</span><span class="chip fr"><b>2</b> pistes</span></div>
   </div>
@@ -111,25 +164,25 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
   </svg>
 </header>
 
-<section>
+<section id="day">
   <h2><span class="en">The day</span><span class="fr">Le programme</span></h2>
   <p class="lead en">Three moments. Keep an eye on the clock.</p><p class="lead fr">Trois temps forts. Garde un œil sur l’horloge.</p>
   <div class="times">
     <div class="time"><b>1:30 PM</b><h3 class="en">Welcome</h3><h3 class="fr">Accueil</h3>
-      <p class="en">Mission pitch; teams and team leads announced; API keys distributed.</p><p class="fr">Pitch de la mission, annonce des équipes et des team leads, distribution des clés API.</p></div>
-    <div class="time"><b>2:30 PM</b><h3 class="en">Build</h3><h3 class="fr">Construction</h3>
-      <p class="en">AWS framework first, followed by parallel development by the teams.</p><p class="fr">Le socle AWS d’abord, puis le développement en parallèle par les équipes.</p></div>
+      <p class="en">A talk from the Directors, a check of everyone’s equipment, and team dispatch.</p><p class="fr">Mot des directeurs, vérification du matériel et répartition des équipes.</p></div>
+    <div class="time"><b>2:30 PM</b><h3 class="en">Hackathon kick-off</h3><h3 class="fr">Lancement du hackathon</h3>
+      <p class="en">The hackathon begins with a short reminder talk on the harness concept.</p><p class="fr">Le hackathon démarre avec un court rappel sur le concept de harnais.</p></div>
     <div class="time"><b>5:30 PM</b><h3 class="en">Present</h3><h3 class="fr">Restitution</h3>
       <p class="en">The five deliverables, and a costed proposal of the platform’s monthly cost for the non-profit organization.</p><p class="fr">Les cinq livrables, et une proposition chiffrée du coût de la plateforme par mois pour l’association.</p></div>
   </div>
 </section>
 
-<section>
+<section id="mission">
   <h2><span class="en">The mission</span><span class="fr">La mission</span></h2>
   <p class="lead en">Here’s the big picture before you dive into the rules.</p><p class="lead fr">La vue d’ensemble avant de plonger dans les règles.</p>
   <div class="panel">
     <div class="en">
-      <p><strong>Exaltemps Solidaire</strong> is a hackathon with a purpose: delivering real IT work to associations that don’t have any IT expertise. We’ve picked <strong>10 to 15 champions</strong> from our company, and that’s you.</p>
+      <p><strong>Exaltemps Solidaire</strong> is a hackathon with a purpose: delivering real IT work to associations with limited IT resources. We’ve picked <strong>10 to 15 champions</strong> from our company, and that’s you.</p>
       <div class="why" style="margin-top:18px">
         <div><strong>The need</strong><span>Non-profits receive applications, but have no one to host or maintain them.</span></div>
         <div><strong>The mission</strong><span>AI agents that build an AWS platform from an application’s Git repository, then handle its maintenance.</span></div>
@@ -138,7 +191,7 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
         <div><strong>The goal</strong><span>Minimize human intervention: use managed services as much as possible, otherwise delegate to an AI agent depending on the problem encountered. A human is alerted only when the AI agent meets a task it cannot handle or has failed.</span></div>
       </div></div>
     <div class="fr">
-      <p><strong>Exaltemps Solidaire</strong> est un hackathon à vocation sociale : livrer de vrais travaux IT à des associations sans aucune expertise informatique. Nous avons choisi <strong>10 à 15 champions</strong> dans l’entreprise, et c’est toi.</p>
+      <p><strong>Exaltemps Solidaire</strong> est un hackathon à vocation sociale : livrer de vrais travaux IT à des associations aux ressources IT limitées. Nous avons choisi <strong>10 à 15 champions</strong> dans l’entreprise, et c’est toi.</p>
       <div class="why" style="margin-top:18px">
         <div><strong>Le besoin</strong><span>Les associations reçoivent des applications, mais personne pour les héberger ou les maintenir.</span></div>
         <div><strong>La mission</strong><span>Des agents IA qui construisent une plateforme AWS à partir du dépôt Git d’une application, puis en assurent la maintenance.</span></div>
@@ -149,7 +202,7 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
   </div>
 </section>
 
-<section>
+<section id="app">
   <h2><span class="en">The application you will work on</span><span class="fr">L’application sur laquelle tu vas travailler</span></h2>
   <p class="lead en">PM Lab Solidaire, the application to host.</p><p class="lead fr">PM Lab Solidaire, l’application à héberger.</p>
   <div class="panel">
@@ -169,68 +222,118 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
   </div>
 </section>
 
-<section>
+<section id="build">
   <h2><span class="en">What you are building</span><span class="fr">Ce que tu construis</span></h2>
-    <ul class="build en">
-    <li><strong>The agents and their harness,</strong> configurable for any association, including:
-      <ul><li>an agent that creates and optimizes the AWS foundation: network, VPC, NAT, security groups, etc.</li><li>an agent that creates and optimizes the monitoring and notifications foundation.</li></ul></li>
-    <li><strong>Testing</strong> for Terraform, the agents, and the harness.</li></ul>
-  <ul class="build fr">
-    <li><strong>Les agents et leur harnais,</strong> configurables pour n’importe quelle association, dont :
-      <ul><li>un agent qui crée et optimise le socle AWS : réseau, VPC, NAT, security groups, etc.</li><li>un agent qui crée et optimise le socle de monitoring et de notifications.</li></ul></li>
-    <li><strong>Les tests</strong> du Terraform, des agents et du harnais.</li></ul>
+  <div class="en"><p class="lead">The agents and their harness, configurable for any association.</p>
+    <div class="bgrid duo"><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg><div class="bt"><span class="tag">Builder</span></div><h3>The builder agent</h3><span class="d">Creates and optimizes the AWS foundation: network, VPC, NAT, security groups, etc.</span></div><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><div class="bt"><span class="tag ops">Ops</span></div><h3>The ops builder agent</h3><span class="d">Creates and optimizes the monitoring and notifications foundation as Terraform resources.</span><div class="nest"><b>The operating agent</b><span class="via">Provided by the ops builder agent as a Terraform resource</span><span class="d">Runs in your AWS account around the clock and reacts to platform events. Have a close look at Amazon Bedrock.</span></div></div></div>
+    <div class="bgrid two"><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><div class="bt"></div><h3>A shared harness</h3><span class="d">Parameters, permitted actions and logs shared by every agent, so the same setup serves the next association.</span></div><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 15h9"/></svg><div class="bt"></div><h3>Tests</h3><span class="d">For the Terraform code, the agents, and the harness.</span></div></div>
+    <p class="tip build-tip">Split the work across several teams, especially between the <strong>builder agent</strong> and the <strong>ops agents</strong>. Each team moves faster on its own agent, as long as everyone builds on the same shared harness.</p></div>
+  <div class="fr"><p class="lead">Les agents et leur harnais, configurables pour n’importe quelle association.</p>
+    <div class="bgrid duo"><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg><div class="bt"><span class="tag">Builder</span></div><h3>L’agent builder</h3><span class="d">Crée et optimise le socle AWS : réseau, VPC, NAT, security groups, etc.</span></div><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg><div class="bt"><span class="tag ops">Ops</span></div><h3>L’agent ops builder</h3><span class="d">Crée et optimise le socle de monitoring et de notifications sous forme de ressources Terraform.</span><div class="nest"><b>L’agent d’exploitation</b><span class="via">Fourni par l’agent ops builder sous forme de ressource Terraform</span><span class="d">Tourne dans ton compte AWS 24 h/24 et réagit aux événements de la plateforme. Regarde de près Amazon Bedrock.</span></div></div></div>
+    <div class="bgrid two"><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><div class="bt"></div><h3>Un harnais commun</h3><span class="d">Paramètres, actions autorisées et logs partagés par tous les agents, pour que la même installation serve la prochaine association.</span></div><div class="del bcard"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7.5 15h9"/></svg><div class="bt"></div><h3>Les tests</h3><span class="d">Pour le code Terraform, les agents et le harnais.</span></div></div>
+    <p class="tip build-tip">Répartissez le travail entre plusieurs équipes, en particulier entre l’<strong>agent builder</strong> et les <strong>agents ops</strong>. Chaque équipe avance plus vite sur son agent, tant que tout le monde s’appuie sur le même harnais commun.</p></div>
 </section>
 
-<section>
+<section id="deliver">
   <h2><span class="en">What you need to deliver</span><span class="fr">Ce que tu dois livrer</span></h2>
-  <p class="lead en">Five deliverables are expected. Ensure everything is ready.</p><p class="lead fr">Cinq livrables sont attendus. Assure-toi que tout soit prêt.</p>
+  <p class="lead en">Five deliverables are expected, all generated together. At the end, publish your agents in a private Git repository.</p><p class="lead fr">Cinq livrables sont attendus, générés ensemble. À la fin, publie tes agents dans un dépôt Git privé.</p>
   <div class="grid">
-    <label class="del"><input type="checkbox"><span class="tick">✓</span><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 10l-2 2 2 2M16 10l2 2-2 2M13 9l-2 6"/></svg>
-      <h3 class="en">A Terraform repository</h3><h3 class="fr">Un dépôt Terraform</h3><span class="d en">The infrastructure code, ready to reuse.</span><span class="d fr">Le code d’infrastructure, prêt à être réutilisé.</span></label>
-    <label class="del"><input type="checkbox"><span class="tick">✓</span><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 21h6"/></svg>
-      <h3 class="en">AI agents</h3><h3 class="fr">Des agents IA</h3><span class="d en">They build the AWS platform from an app’s code repo, then maintain it. You also build their harness.</span><span class="d fr">Ils construisent la plateforme AWS depuis un repo de code d’une app, puis la maintiennent. Tu construis aussi leur harnais.</span></label>
-    <label class="del"><input type="checkbox"><span class="tick">✓</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
-      <h3 class="en">An application URL</h3><h3 class="fr">Une URL de l’application</h3><span class="d en">The live app, reachable by everyone.</span><span class="d fr">L’app en ligne, accessible à tous.</span></label>
-    <label class="del"><input type="checkbox"><span class="tick">✓</span><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
-      <h3 class="en">A live monitoring URL</h3><h3 class="fr">Une URL de monitoring live</h3><span class="d en">A page showing the platform’s health in real time. Bonus: include the infrastructure cost of the monitoring.</span><span class="d fr">Une page qui montre la santé de la plateforme en temps réel. Bonus : inclure le coût d’infrastructure du monitoring.</span></label>
-    <label class="del"><input type="checkbox"><span class="tick">✓</span><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 11h8M8 15h8"/></svg>
-      <h3 class="en">A quickstart guide</h3><h3 class="fr">Un guide de démarrage</h3><span class="d en">So the association can deploy it on its own.</span><span class="d fr">Pour que l’association puisse le déployer seule.</span></label>
+    <div class="del"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 10l-2 2 2 2M16 10l2 2-2 2M13 9l-2 6"/></svg>
+      <h3 class="en">A Terraform repository</h3><h3 class="fr">Un dépôt Terraform</h3><span class="d en">The infrastructure code, ready to reuse.</span><span class="d fr">Le code d’infrastructure, prêt à être réutilisé.</span></div>
+    <div class="del"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 21h6"/></svg>
+      <h3 class="en">AI agents</h3><h3 class="fr">Des agents IA</h3><span class="d en">They build the AWS platform from an app’s code repo, then run it. You also build their harness. Publish them in a private Git repository at the end.</span><span class="d fr">Ils construisent la plateforme AWS depuis un repo de code d’une app, puis l’exploitent. Tu construis aussi leur harnais. Publie-les dans un dépôt Git privé à la fin.</span></div>
+    <div class="del"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+      <h3 class="en">An application URL</h3><h3 class="fr">Une URL de l’application</h3><span class="d en">The live app, reachable by everyone.</span><span class="d fr">L’app en ligne, accessible à tous.</span></div>
+    <div class="del"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+      <h3 class="en">A live monitoring URL</h3><h3 class="fr">Une URL de monitoring live</h3><span class="d en">A page showing the platform’s health in real time. Bonus: include the infrastructure cost of the monitoring.</span><span class="d fr">Une page qui montre la santé de la plateforme en temps réel. Bonus : inclure le coût d’infrastructure du monitoring.</span></div>
+    <div class="del"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 11h8M8 15h8"/></svg>
+      <h3 class="en">A quickstart guide</h3><h3 class="fr">Un guide de démarrage</h3><span class="d en">So the association can deploy it on its own.</span><span class="d fr">Pour que l’association puisse le déployer seule.</span></div>
   </div>
 </section>
 
-<section>
-  <h2><span class="en">The rules of the game</span><span class="fr">Les règles du jeu</span></h2>
+<section id="rules">
+  <h2><span class="en">Guidelines</span><span class="fr">Les guidelines</span></h2>
   <div class="rules">
-    <article class="rule"><h3 class="en">Get your tools ready</h3><h3 class="fr">Prépare tes outils</h3>
-      <p class="en">Make sure you have <strong>Claude Code</strong> installed, plus <strong>VS Code</strong> or <strong>IntelliJ</strong>, whichever you prefer.</p>
-      <p class="fr">Vérifie que <strong>Claude Code</strong> est installé, ainsi que <strong>VS Code</strong> ou <strong>IntelliJ</strong>, selon ta préférence.</p></article>
-    <article class="rule"><h3 class="en">Clone the application code</h3><h3 class="fr">Clone le code de l’application</h3>
-      <p class="en">Everyone on the team should have the application’s Git repository on their own machine. We’ll share the link with you later.</p>
-      <p class="fr">Chaque membre de l’équipe doit avoir le dépôt Git de l’application sur sa machine. On te transmettra le lien plus tard.</p></article>
-    <article class="rule"><h3 class="en">Start from the Terraform example</h3><h3 class="fr">Pars de l’exemple Terraform</h3>
-      <p class="en">You can also clone our example Terraform repository. It already bootstraps the project, so you don’t need to lose time configuring Terraform and AWS from scratch. Skip the setup and spend your energy on the agents.</p>
-      <p class="fr">Tu peux aussi cloner notre dépôt Terraform d’exemple. Il initialise déjà le projet : inutile de perdre du temps à paramétrer Terraform et AWS. Évite la configuration et mets ton énergie sur les agents.</p></article>
+    <details class="rule pre">
+      <summary><h3 class="en">Get your tools ready</h3><h3 class="fr">Prépare tes outils</h3>
+        <span class="hint"><span class="t en">8 pre-checks</span><span class="t fr">8 vérifications</span><span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></summary>
+      <p class="en" style="margin-top:12px">Run through these checks before going further. If one fails, flag it to the organizers right away.</p>
+      <p class="fr" style="margin-top:12px">Passe ces vérifications avant d’aller plus loin. Si l’une échoue, signale-le tout de suite aux organisateurs.</p>
+      <ol class="checks en">
+        <li><span>Connect to the <strong>VM we prepared for you</strong> with <strong>AWS SSM Session Manager</strong>, and open a terminal.</span></li>
+        <li><span>Git is installed: <code>git --version</code></span></li>
+        <li><span>Podman is installed: <code>podman --version</code></span></li>
+        <li><span>Claude Code and Node.js are installed: <code>claude --version</code> and <code>node --version</code></span></li>
+        <li><span>The Terraform CLI is installed: <code>terraform --version</code></span></li>
+        <li><span>The AWS CLI is installed: <code>aws --version</code></span></li>
+        <li><span>You received your <strong>Claude API key</strong> and your <strong>ElevenLabs API key</strong>.</span></li>
+        <li><span>The <strong>credentials are set</strong> for your Terraform configuration.</span></li>
+      </ol>
+      <ol class="checks fr">
+        <li><span>Connecte-toi à la <strong>VM que nous avons préparée</strong> via <strong>AWS SSM Session Manager</strong>, puis ouvre un terminal.</span></li>
+        <li><span>Git est installé : <code>git --version</code></span></li>
+        <li><span>Podman est installé : <code>podman --version</code></span></li>
+        <li><span>Claude Code et Node.js sont installés : <code>claude --version</code> et <code>node --version</code></span></li>
+        <li><span>La CLI Terraform est installée : <code>terraform --version</code></span></li>
+        <li><span>La CLI AWS est installée : <code>aws --version</code></span></li>
+        <li><span>Tu as bien reçu ta <strong>clé API Claude</strong> et ta <strong>clé API ElevenLabs</strong>.</span></li>
+        <li><span>Les <strong>identifiants sont configurés</strong> pour ta configuration Terraform.</span></li>
+      </ol>
+    </details>
+    <article class="rule"><h3 class="en">Clone the two repositories</h3><h3 class="fr">Clone les deux dépôts</h3>
+      <p class="en">Everyone on the team clones both repositories on their VM: the application to host, and the Terraform project that deploys it.</p>
+      <p class="fr">Chaque membre de l’équipe clone les deux dépôts sur sa VM : l’application à héberger, et le projet Terraform qui la déploie.</p>
+      <div class="repos">
+        <a class="repo" href="https://gitlab.com/exalt-it-dojo/pm-lab-self-maintained" target="_blank" rel="noopener"><b>PM Lab</b><span class="en">The application · </span><span class="fr">L’application · </span><span>gitlab.com/exalt-it-dojo/pm-lab-self-maintained</span></a>
+        <a class="repo" href="https://gitlab.com/exalt-it-dojo/exaltemps-solidaire" target="_blank" rel="noopener"><b><span class="en">Terraform project</span><span class="fr">Projet Terraform</span></b><span class="en">The infrastructure · </span><span class="fr">L’infrastructure · </span><span>gitlab.com/exalt-it-dojo/exaltemps-solidaire</span></a>
+      </div></article>
+    <article class="rule"><h3 class="en">How to work together</h3><h3 class="fr">Comment travailler ensemble</h3>
+      <div class="en"><p><strong>Branch strategy.</strong> The <code>master</code> branch of the Terraform project is the <strong>production</strong> version of the project.</p>
+        <ul class="branches">
+          <li>Create <strong>two new branches</strong> from <code>master</code>, one for the builder and one for the ops. Work on these dev branches, change the Terraform project name to deploy a dev version, and iterate on your dedicated Terraform environment.</li>
+          <li>Work together on a <strong>common harness</strong>: merge your harness changes into <code>master</code> whenever you’ve iterated on it, so your colleagues benefit from them in the global harness, and keep talking to each other. When your Terraform code is ready and tested, push it to <code>master</code> and redeploy production.</li>
+          <li>Don’t forget to <strong>rebase your branch on <code>master</code></strong> regularly to pull in your colleagues’ changes: <code>git fetch</code> then <code>git rebase origin/master</code>.</li>
+          <li><span class="tag">Builder</span>Enrich the harness for the builder’s needs directly, and have the agent change the Terraform code (a default app has been provided as a bootstrap) to adapt it to PM Lab.</li>
+          <li class="ops-l"><span class="tag ops">Ops</span>Start from the existing Terraform codebase, enrich the harness for the ops agent, and iterate again each time the builder agent delivers a new version of the Terraform codebase.</li>
+        </ul></div>
+      <div class="fr"><p><strong>Stratégie de branches.</strong> La branche <code>master</code> du projet Terraform est la version de <strong>production</strong> du projet.</p>
+        <ul class="branches">
+          <li>Crée <strong>deux nouvelles branches</strong> depuis <code>master</code>, une pour le builder et une pour l’ops. Travaille sur ces branches de dev, change le nom du projet Terraform pour déployer une version de dev, et itère sur ton environnement Terraform dédié.</li>
+          <li>Travaillez ensemble sur un <strong>harnais commun</strong> : fusionne tes modifications du harnais sur <code>master</code> dès que tu as itéré dessus, pour en faire profiter tes collègues dans le harnais global, et n’hésitez pas à communiquer entre vous. Quand ton code Terraform est prêt et testé, pousse-le sur <code>master</code> et redéploie la production.</li>
+          <li>N’oublie pas de <strong>rebaser ta branche sur <code>master</code></strong> régulièrement pour récupérer les modifications de tes collègues : <code>git fetch</code> puis <code>git rebase origin/master</code>.</li>
+          <li><span class="tag">Builder</span>Enrichis directement le harnais pour les besoins du builder, et fais modifier par l’agent le code Terraform (une app par défaut a été fournie comme bootstrap) pour l’adapter à PM Lab.</li>
+          <li class="ops-l"><span class="tag ops">Ops</span>Pars du code Terraform existant, enrichis le harnais pour l’agent ops, et itère à nouveau chaque fois que l’agent builder livre une nouvelle version du code Terraform.</li>
+        </ul></div></article>
     <article class="rule"><h3 class="en">Split the work into two distinct tracks</h3><h3 class="fr">Répartis le travail en deux pistes distinctes</h3>
-      <p class="en">Divide and conquer, or work on both together. Just make sure the two parts stay clearly separate.</p>
-      <p class="fr">Divisez pour mieux régner, ou travaillez ensemble sur les deux. Veillez simplement à bien séparer les deux parties.</p>
+      <p class="en">One team per agent, each on its own dev branch, both building on the shared harness on <code>master</code>. Keep the two parts clearly separate.</p>
+      <p class="fr">Une équipe par agent, chacune sur sa branche de dev, toutes deux sur le harnais commun de <code>master</code>. Veillez à bien séparer les deux parties.</p>
       <div class="split">
         <div class="track a">
-          <h4 class="en">Track one: the builder agent</h4><h4 class="fr">Piste 1 : l’agent bâtisseur</h4>
-          <div class="en"><p>Your agent calculates and builds the Terraform modules, then provisions the right AWS components for the application’s needs. You also build the harness around it.</p>
-            <ul><li><strong>Don’t waste time fetching the Git project with the agent.</strong></li><li>Launch the agent directly on the local repository you already cloned.</li></ul>
-            <p class="tip">Save your time for the architecture and the harness, not for plumbing.</p></div>
-          <div class="fr"><p>Ton agent calcule et construit les modules Terraform, puis provisionne les bons composants AWS selon les besoins de l’application. Tu construis aussi le harnais qui l’entoure.</p>
-            <ul><li><strong>Ne perds pas de temps à faire récupérer le projet Git par l’agent.</strong></li><li>Lance l’agent directement sur le dépôt local que tu as déjà cloné.</li></ul>
-            <p class="tip">Garde ton temps pour l’architecture et le harnais, pas pour la tuyauterie.</p></div>
-          <div class="pills"><span>Security</span><span>FinOps</span><span class="en">High availability</span><span class="fr">Haute disponibilité</span></div></div>
+          <h4 class="en">Track one: the builder agent</h4><h4 class="fr">Piste 1 : l’agent builder</h4>
+          <div class="en"><p>Your agent adapts the default Terraform base to PM Lab: it builds the Terraform modules and provisions the right AWS components for the application’s needs. You also enrich the shared harness for it.</p>
+            <ul><li><strong>Don’t waste time fetching the Git projects with the agent.</strong></li><li>Launch the agent directly on the two repositories already cloned on your VM, on the builder branch.</li></ul>
+            <p class="tip">Save your time for the architecture and the harness, not for plumbing.</p>
+            <p class="squad"><strong>A dedicated security squad</strong>You’ll surely need a squad working on skills that ensure security in the global harness, common to the builder agent and the ops agent. Don’t hesitate to create skills for that.</p></div>
+          <div class="fr"><p>Ton agent adapte la base Terraform par défaut à PM Lab : il construit les modules Terraform et provisionne les bons composants AWS selon les besoins de l’application. Tu enrichis aussi le harnais commun pour lui.</p>
+            <ul><li><strong>Ne perds pas de temps à faire récupérer les projets Git par l’agent.</strong></li><li>Lance l’agent directement sur les deux dépôts déjà clonés sur ta VM, sur la branche builder.</li></ul>
+            <p class="tip">Garde ton temps pour l’architecture et le harnais, pas pour la tuyauterie.</p>
+            <p class="squad"><strong>Une squad sécurité dédiée</strong>Tu auras sûrement besoin d’une squad qui travaille sur des skills garantissant la sécurité dans le harnais global, commun à l’agent builder et à l’agent ops. N’hésite pas à créer des skills pour ça.</p></div>
+          <div class="pills"><span>Security</span><span class="en">High availability</span><span class="fr">Haute disponibilité</span></div></div>
         <div class="track b">
-          <h4 class="en">Track two: the self-maintaining agent</h4><h4 class="fr">Piste 2 : l’agent auto-maintenu</h4>
-          <div class="en"><p>Your agent only steps in when an event isn’t handled by a managed service.</p>
-            <ul><li>It must be able to create the monitoring and notification foundation, based on what the builder agent deploys.</li><li>It’s up to you to build the harness properly.</li></ul></div>
-          <div class="fr"><p>Ton agent n’intervient que si un événement n’est pas géré par un service managé.</p>
-            <ul><li>Il doit pouvoir créer le socle de monitoring et de notification en fonction de ce que déploie l’agent bâtisseur.</li><li>À vous de construire le harnais correctement.</li></ul></div>
-          <p class="tip en">If the agent can’t handle a case or fails, a human steps in with a notification.</p>
-          <p class="tip fr">Si l’agent ne peut traiter un cas ou échoue, on passe à l’humain dans la boucle avec une notification.</p></div>
+          <h4 class="en">Track two: the ops agents</h4><h4 class="fr">Piste 2 : les agents ops</h4>
+          <div class="en"><p>This track has <strong>two separate agents</strong>, each with its own harness. The second one is provided by the first.</p>
+            <div class="sub"><h5>The ops builder agent</h5>
+              <ul><li>It creates the monitoring and notification Terraform resources with the harness, based on what the builder agent deploys.</li><li>Start from the existing Terraform codebase on the ops branch, and re-sync each time a new builder version lands on <code>master</code>.</li></ul>
+              <div class="nest"><h5>The operating agent</h5><span class="via">Provided by the ops builder agent as a Terraform resource</span>
+                <ul><li>It runs in your AWS account. Have a close look at <strong>Amazon Bedrock</strong>.</li><li>It operates 24/7 and reacts to AWS platform events, also within a harness, and only steps in when an event isn’t handled by a managed service.</li></ul></div></div></div>
+          <div class="fr"><p>Cette piste compte <strong>deux agents distincts</strong>, chacun avec son propre harnais. Le second est fourni par le premier.</p>
+            <div class="sub"><h5>L’agent ops builder</h5>
+              <ul><li>Il crée les ressources Terraform de monitoring et de notification avec le harnais, en fonction de ce que déploie l’agent builder.</li><li>Pars du code Terraform existant sur la branche ops, et resynchronise-toi chaque fois qu’une nouvelle version du builder arrive sur <code>master</code>.</li></ul>
+              <div class="nest"><h5>L’agent d’exploitation</h5><span class="via">Fourni par l’agent ops builder sous forme de ressource Terraform</span>
+                <ul><li>Il tourne dans ton compte AWS. Regarde de près <strong>Amazon Bedrock</strong>.</li><li>Il opère 24 h/24 et réagit aux événements de la plateforme AWS, lui aussi dans un harnais, et n’intervient que si un événement n’est pas géré par un service managé.</li></ul></div></div></div>
+          <p class="tip en">If the operating agent can’t handle a case or fails, a human steps in with a notification.</p>
+          <p class="tip fr">Si l’agent d’exploitation ne peut traiter un cas ou échoue, on passe à l’humain dans la boucle avec une notification.</p>
+          <div class="pills"><span>FinOps</span><span>Monitoring</span><span>Security</span></div></div>
       </div>
       <div class="harness">
         <h4 class="en">Rules to ensure a platform’s success: a generic harness</h4><h4 class="fr">Les règles du succès : un harnais générique</h4>
@@ -246,21 +349,50 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
           <div><b>4 · Tout est testé</b><p>Terraform, agents et harnais. Une plateforme autonome fait ses preuves.</p></div></div>
       </div>
     </article>
-    <article class="rule"><h3 class="en">Test it, then launch everything in one go</h3><h3 class="fr">Teste, puis lance tout d’un seul coup</h3>
-      <div class="en"><p>With two agents, don’t run two separate setups. Wire them behind <strong>one command</strong> and <strong>one common harness</strong> (shared parameters, one list of permitted actions, shared logs). Then run it from scratch, as the association would.</p>
+    <article class="rule"><h3 class="en">From code to deployed infrastructure</h3><h3 class="fr">Du code à l’infrastructure déployée</h3>
+      <div class="en"><p>Keep enhancing the harness and your agent so the Terraform codebase gets better and matches the expected deliverables. When it’s time to run <code>terraform apply</code> on the codebase the agent generated, move up step by step:</p>
+        <ol class="checks">
+          <li><span><strong>First time, by hand.</strong> Run the apply yourself to see what the agent produced.</span></li>
+          <li><span><strong>Then, by the agent</strong>, with a human in the loop to validate the plan before it applies.</span></li>
+          <li><span><strong>Finally, Claude launches the agents together</strong> and drives them to the Definition of Done below.</span></li>
+        </ol>
+        <p class="tip warn">Each agent has different rights. Be careful: an agent only runs <code>terraform apply</code> within its own scope, with the matching permissions, and never touches resources provisioned by another agent.</p>
+        <div class="dod"><h4>Suggested Definition of Done (DoD) for Claude</h4>
+          <ol class="checks">
+            <li><span>The codebase is adapted to the Git project, PM Lab in this case.</span></li>
+            <li><span>Tests based on the harness pass.</span></li>
+            <li><span>The infrastructure is deployed.</span></li>
+            <li><span>The deliverables are provided.</span></li>
+            <li><span>The infrastructure and the endpoints are tested.</span></li>
+          </ol></div></div>
+      <div class="fr"><p>Continue d’améliorer le harnais et ton agent pour que le code Terraform s’améliore et corresponde aux livrables attendus. Quand vient le moment de lancer <code>terraform apply</code> sur le code généré par l’agent, monte en puissance par étapes :</p>
+        <ol class="checks">
+          <li><span><strong>La première fois, à la main.</strong> Lance l’apply toi-même pour voir ce que l’agent a produit.</span></li>
+          <li><span><strong>Ensuite, par l’agent</strong>, avec un humain dans la boucle qui valide le plan avant l’apply.</span></li>
+          <li><span><strong>Enfin, Claude lance les agents ensemble</strong> et les mène jusqu’à la Definition of Done ci-dessous.</span></li>
+        </ol>
+        <p class="tip warn">Chaque agent a des droits différents. Attention : un agent ne lance <code>terraform apply</code> que dans son propre périmètre, avec les permissions correspondantes, sans jamais toucher aux ressources providées d’un autre agent.</p>
+        <div class="dod"><h4>Definition of Done (DoD) suggérée pour Claude</h4>
+          <ol class="checks">
+            <li><span>Le code est adapté au projet Git, PM Lab dans ce cas.</span></li>
+            <li><span>Les tests basés sur le harnais passent.</span></li>
+            <li><span>L’infrastructure est déployée.</span></li>
+            <li><span>Les livrables sont fournis.</span></li>
+            <li><span>L’infrastructure et les endpoints sont testés.</span></li>
+          </ol></div></div></article>
+    <article class="rule"><h3 class="en">Final test</h3><h3 class="fr">Final test</h3>
+      <div class="en"><p>With several agents, don’t run separate setups. Wire them behind <strong>one command</strong> and <strong>one common harness</strong> (shared parameters, one list of permitted actions, shared logs). Prove it on your dev environments first, then merge to <code>master</code> and redeploy production, as the association would.</p>
         <div class="pr">
           <div><b>Terraform</b><p>Format and validate, lint, security scan (Checkov or tfsec), plan checks, and a cost estimate against your budget.</p></div>
           <div><b>Agents</b><p>Mocked AWS calls, then scenarios: a stopped ECS task, a failing database, an unknown error that must end in an alert.</p></div>
           <div><b>Harness</b><p>An action outside the permitted list is blocked and escalated; the same parameters file works for another association.</p></div>
-          <div><b>End to end</b><p>Deploy in a clean account, reach the app URL, check the monitoring page, then destroy cleanly.</p></div></div>
-        <p class="tip">Before calling it done, tick the five deliverables in the checklist above.</p></div>
-      <div class="fr"><p>Avec deux agents, ne lancez pas deux installations séparées. Branchez-les derrière <strong>une seule commande</strong> et <strong>un harnais commun</strong> (paramètres partagés, une seule liste d’actions autorisées, logs communs). Puis lancez-le de zéro, comme le ferait l’association.</p>
+          <div><b>End to end</b><p>Deploy from your dev branch, reach the app URL, check the monitoring page, destroy cleanly. Then do the same from <code>master</code> for production.</p></div></div></div>
+      <div class="fr"><p>Avec plusieurs agents, ne lancez pas d’installations séparées. Branchez-les derrière <strong>une seule commande</strong> et <strong>un harnais commun</strong> (paramètres partagés, une seule liste d’actions autorisées, logs communs). Validez d’abord sur vos environnements de dev, puis fusionnez sur <code>master</code> et redéployez la production, comme le ferait l’association.</p>
         <div class="pr">
           <div><b>Terraform</b><p>Format et validation, lint, scan de sécurité (Checkov ou tfsec), contrôle du plan et estimation du coût par rapport à votre budget.</p></div>
           <div><b>Agents</b><p>Appels AWS simulés, puis scénarios : une tâche ECS arrêtée, une base en panne, une erreur inconnue qui doit finir en alerte.</p></div>
           <div><b>Harnais</b><p>Une action hors liste autorisée est bloquée et remontée ; le même fichier de paramètres fonctionne pour une autre association.</p></div>
-          <div><b>De bout en bout</b><p>Déploiement dans un compte vierge, accès à l’URL de l’app, vérification de la page de monitoring, puis destruction propre.</p></div></div>
-        <p class="tip">Avant de dire que c’est fini, coche les cinq livrables dans la checklist plus haut.</p></div></article>
+          <div><b>De bout en bout</b><p>Déploiement depuis ta branche de dev, accès à l’URL de l’app, vérification de la page de monitoring, destruction propre. Puis la même chose depuis <code>master</code> pour la production.</p></div></div></div></article>
   </div>
 </section>
 
@@ -268,13 +400,17 @@ footer{margin-top:64px;text-align:center;color:var(--soft);font-size:.95rem}
 </main>
 <script>
 (function(){
-  var root=document.documentElement,boxes=document.querySelectorAll('.del input'),fill=document.getElementById('fill'),count=document.getElementById('count');
-  function update(){var n=0;boxes.forEach(function(b){if(b.checked)n++});fill.style.width=(n/boxes.length*100)+'%';count.textContent=n+' / '+boxes.length+' '+(root.lang==='fr'?'livrables':'deliverables')}
-  function set(l){root.lang=l;try{localStorage.setItem('lang',l)}catch(e){}update()}
+  var root=document.documentElement;
+  function set(l){root.lang=l;try{localStorage.setItem('lang',l)}catch(e){}}
   var s=null;try{s=localStorage.getItem('lang')}catch(e){}
   set(s||((navigator.language||'en').slice(0,2)==='fr'?'fr':'en'));
   document.getElementById('lang').addEventListener('click',function(){set(root.lang==='fr'?'en':'fr')});
-  boxes.forEach(function(b){b.addEventListener('change',update)});
+  var links=[].slice.call(document.querySelectorAll('.menu a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function spy(){var y=window.scrollY+120,i=0;secs.forEach(function(sec,k){if(sec&&sec.offsetTop<=y)i=k});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)i=secs.length-1;
+    links.forEach(function(a,k){a.classList.toggle('on',k===i);if(k===i)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});}
+  window.addEventListener('scroll',spy,{passive:true});spy();
 })();
 </script>
 </body>
